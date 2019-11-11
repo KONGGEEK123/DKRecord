@@ -212,35 +212,35 @@
 #pragma mark -- PRIVATE 权限判断
 
 /// 获取权限
-+ (OYERecordManagerAudioAuthStatus)getAudioAuth {
++ (DKRecordManagerAudioAuthStatus)getAudioAuth {
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
     switch (authStatus) {
         case AVAuthorizationStatusNotDetermined:
         // 被拒绝
         {
-            return OYERecordManagerAudioAuthStatusNoAuth;
+            return DKRecordManagerAudioAuthStatusNoAuth;
         }
         break;
         case AVAuthorizationStatusRestricted:
         // 未授权，家长限制
         {
-            return OYERecordManagerAudioAuthStatusNoAuth;
+            return DKRecordManagerAudioAuthStatusNoAuth;
         }
         break;
         case AVAuthorizationStatusDenied:
         // 玩家未授权
         {
-            return OYERecordManagerAudioAuthStatusUnknow;
+            return DKRecordManagerAudioAuthStatusUnknow;
         }
         break;
         case AVAuthorizationStatusAuthorized:
         // 玩家授权
         {
-            return OYERecordManagerAudioAuthStatusAuth;
+            return DKRecordManagerAudioAuthStatusAuth;
         }
         break;
         default:
-            return OYERecordManagerAudioAuthStatusUnknow;
+            return DKRecordManagerAudioAuthStatusUnknow;
         break;
     }
 }

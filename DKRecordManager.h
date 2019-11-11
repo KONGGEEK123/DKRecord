@@ -3,19 +3,19 @@
 #import <AVFoundation/AVFoundation.h>
 
 typedef enum : NSUInteger {
-    OYERecordManagerAudioAuthStatusUnknow,
-    OYERecordManagerAudioAuthStatusNoAuth,
-    OYERecordManagerAudioAuthStatusAuth
-} OYERecordManagerAudioAuthStatus;
+    DKRecordManagerAudioAuthStatusUnknow,
+    DKRecordManagerAudioAuthStatusNoAuth,
+    DKRecordManagerAudioAuthStatusAuth
+} DKRecordManagerAudioAuthStatus;
 
-@protocol OYERecordManagerDelegate <NSObject>
+@protocol DKRecordManagerDelegate <NSObject>
 @optional
 
 @end
 
 @interface DKRecordManager : NSObject
 + (DKRecordManager *)sharedManager;
-@property (assign, nonatomic) id <OYERecordManagerDelegate> delegate;
+@property (assign, nonatomic) id <DKRecordManagerDelegate> delegate;
 /// 音量检测
 /// @param able able
 - (void)setMeteringEnable:(BOOL)able;
@@ -57,6 +57,6 @@ typedef enum : NSUInteger {
 #pragma mark -- PRIVATE 工具类
 
 /// 获取权限
-+ (OYERecordManagerAudioAuthStatus)getAudioAuth;
++ (DKRecordManagerAudioAuthStatus)getAudioAuth;
 @end
 
